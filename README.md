@@ -1,7 +1,7 @@
 # Todo-List-Web-App
  Todo List Application with flask and API Designing
 Installation :
-- Download "Todo List Setup.exe" and execute it
+- Download "todo_setup_file.exe" and execute it
 - Follow the installation steps
 
 Explanations :
