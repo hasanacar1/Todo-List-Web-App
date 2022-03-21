@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Todo App</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <br>
+    <p align="center"><a href="/api_documentation" >
+            <button type="submit" class="btn btn-primary"> API Documentation </button>
+        </a></p>
+    <div style="margin-Top:100px;" class="container">
+        <h3>Todo List</h3>
+        <hr>
+        <form action="/create_todos" method="post">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Name</label>
+                        <input type="text" name = "name" class="form-control" id="formGroupExampleInput" placeholder="Enter Task Name">
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <label for="formGroupExampleInput">Date</label>
+                    <div class="form-group">
+                        <input name = "date" id="datepicker" width="276" />
+                        <script>
+                            $('#datepicker').datepicker({
+                                uiLibrary: 'bootstrap4'
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Status</label>
+                        <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Status
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="#">Pending</a>
+                                  <a class="dropdown-item" href="#">in-progress</a>
+                                  <a class="dropdown-item" href="#">done</a>
+                                  <a class="dropdown-item" href="#">rejected</a>
+                              </div>
+                              <input type="hidden" id="custId" name="status">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Description</label>
+                <textarea type="text" name = "description" class="form-control" id="formGroupExampleInput2" placeholder="Enter Description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+        <br>
+        <p align="center"><a href="/get_all_todos" >
+        <button type="button" class="btn btn-primary btn-lg btn-block">GET ALL TODOS</button>
+        </a></p>
+
+    </div>
+
+    <script>
+        $('.dropdown-item').on('click',  function(){
+            var btnObj = $(this).parent().siblings('button');
+            $(btnObj).text($(this).text());
+            $(btnObj).val($(this).text());
+            var inputObj = $(this).parent().siblings('input');
+            $(inputObj).text($(this).text());
+            $(inputObj).val($(this).text());
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
