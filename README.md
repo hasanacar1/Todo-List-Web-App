@@ -1,7 +1,7 @@
 # Todo-List-Web-App
  Todo List Application with flask and API Designing
 Installation :
-- Download "todo-list_setup.exe" and Run as Administrator
+- Download "todo-list_setup.exe" and Run as Administrator (The database is in read-only mode and returns an internal error unless the installation is run as administrator.)
 - Follow the installation steps
 
 Explanations :
